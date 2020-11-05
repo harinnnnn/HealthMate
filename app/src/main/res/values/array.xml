@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="test">
+        <item>성격</item>
+        <item>엉뚱</item>
+        <item>활발</item>
+        <item>친절</item>
+        <item>털털</item>
+        <item>착한</item>
+        <item>유머</item>
+        <item>다정다감</item>
+    </string-array>
+</resources>
