@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".FriendsActivity">
 
+    //깃 성공?
+    
     <TextView
         android:gravity="center"
         android:id="@+id/textView"
