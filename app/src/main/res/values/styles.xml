@@ -3,6 +3,9 @@
 
 
     <style name="AppTheme" parent="Theme.MaterialComponents.Light.Bridge">
+        <!-- 타이틀바 없애기 -->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
     </style>
 
 </resources>
