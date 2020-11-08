@@ -30,12 +30,12 @@
 
         <ImageView
             android:id="@+id/chat"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_marginLeft="345dp"
             android:layout_marginTop="8dp"
             android:paddingTop="5dp"
-            android:src="@drawable/chat" />
+            android:src="@drawable/message" />
 
     </RelativeLayout>
 

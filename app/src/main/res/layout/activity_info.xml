@@ -43,14 +43,37 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_gender" />
 
     <TextView
+        android:id="@+id/tv_region"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="선호지역"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="@+id/tv_gender"
+        app:layout_constraintTop_toBottomOf="@+id/chip_male" />
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/p_region"
+        style="@style/Widget.MaterialComponents.Chip.Choice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="40dp"
+        android:text="선택하세요"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/tv_region"
+        app:layout_constraintTop_toBottomOf="@+id/chip_male" />
+
+    <TextView
         android:id="@+id/tv_personality"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:text="성격"
         android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="@+id/tv_gender"
-        app:layout_constraintTop_toBottomOf="@+id/chip_male" />
+        app:layout_constraintStart_toStartOf="@+id/tv_region"
+        app:layout_constraintTop_toBottomOf="@+id/tv_region" />
 
     <com.google.android.material.chip.ChipGroup
         android:id="@+id/chipgroup2"
