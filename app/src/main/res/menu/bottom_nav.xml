@@ -3,27 +3,27 @@
 
     <item
         android:id="@+id/navigation_1"
-        android:icon="@drawable/home"
+        android:icon="@drawable/ic_baseline_home_24"
         android:title="홈" />
 
     <item
         android:id="@+id/navigation_2"
-        android:icon="@drawable/exercise"
+        android:icon="@drawable/ic_baseline_toc_24"
         android:title="운동시설" />
 
     <item
         android:id="@+id/navigation_3"
-        android:icon="@drawable/main_more_icon"
+        android:icon="@drawable/ic_baseline_people_24"
         android:title="친구목록" />
 
     <item
         android:id="@+id/navigation_4"
-        android:icon="@drawable/map"
+        android:icon="@drawable/ic_baseline_place_24"
         android:title="지도" />
 
     <item
         android:id="@+id/navigation_5"
-        android:icon="@drawable/user"
+        android:icon="@drawable/ic_profile_black_24"
         android:title="내정보" />
 
 </menu>

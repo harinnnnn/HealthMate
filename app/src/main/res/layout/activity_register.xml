@@ -30,7 +30,7 @@
         android:layout_marginEnd="50dp"
         android:layout_marginRight="50dp"
         android:ems="10"
-        android:hint="아이디"
+        android:hint="이메일"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -72,16 +72,40 @@
         app:layout_constraintStart_toStartOf="@+id/et_name"
         app:layout_constraintTop_toBottomOf="@+id/et_name" />
 
+    <EditText
+        android:id="@+id/et_sex"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="성별"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/et_age"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/et_age"
+        app:layout_constraintTop_toBottomOf="@+id/et_age" />
+
     <Button
         android:id="@+id/btn_register"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginTop="16dp"
         android:text="계속하기"
-        app:layout_constraintEnd_toEndOf="@+id/et_age"
+        app:layout_constraintEnd_toEndOf="@+id/et_sex"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/et_age"
-        app:layout_constraintTop_toBottomOf="@+id/et_age" />
+        app:layout_constraintStart_toStartOf="@+id/et_sex"
+        app:layout_constraintTop_toBottomOf="@+id/et_sex" />
+
+    <Button
+        android:id="@+id/btn_test"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:text="가입하기"
+        app:layout_constraintEnd_toEndOf="@+id/btn_register"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/btn_register"
+        app:layout_constraintTop_toBottomOf="@+id/btn_register" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
