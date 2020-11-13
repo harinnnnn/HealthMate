@@ -49,7 +49,7 @@ public class LoginActivity extends AppCompatActivity {
         et_id = findViewById(R.id.et_id);
         et_pass = findViewById(R.id.et_pass);
         btn_login = findViewById(R.id.btn_login);
-        btn_register = findViewById(R.id.btn_register);
+        btn_register = findViewById(R.id.btn_info);
 
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override

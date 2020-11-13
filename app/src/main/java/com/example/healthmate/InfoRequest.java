@@ -7,14 +7,12 @@ import com.android.volley.toolbox.StringRequest;
 import java.util.HashMap;
 import java.util.Map;
 
-// user_sex 추가됨. (db 필수값인데 아직 칩으로 가입 구현이 안되었기 때문!)
-public class RegisterRequest extends StringRequest {
+public class InfoRequest extends StringRequest {
 
     final static private String URL = "http://health1234.dothome.co.kr/Register.php"; // php 파일 연동
     private Map<String, String> map;
 
-    public RegisterRequest(String userID, String userPassword, String userName,
-                           int userAge, String user_sex, Response .Listener<String> listener) {
+    public InfoRequest(String userID, String userPassword, String userName, int userAge, String user_sex, String user_personality1, String user_personality2, String user_personality3, String user_sport1, String user_sport2, String user_sport3, Response.Listener<String> listener) {
         super(Method.POST, URL, listener, null);
 
         map = new HashMap<>();
@@ -23,6 +21,12 @@ public class RegisterRequest extends StringRequest {
         map.put("userName", userName);
         map.put("userAge", userAge + "");
         map.put("user_sex", user_sex);
+        map.put("user_personality1", user_personality1);
+        map.put("user_personality2", user_personality2);
+        map.put("user_personality3", user_personality3);
+        map.put("user_sport1", user_sport1);
+        map.put("user_sport2", user_sport2);
+        map.put("user_sport3", user_sport3);
     }
 
     @Override
@@ -30,5 +34,3 @@ public class RegisterRequest extends StringRequest {
         return map;
     }
 }
-
-

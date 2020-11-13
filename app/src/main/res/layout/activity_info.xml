@@ -18,29 +18,39 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.chip.Chip
-        android:id="@+id/chip_fmale"
-        style="@style/Widget.MaterialComponents.Chip.Choice"
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/cg_gender"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="여성"
-        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="@+id/tv_gender"
-        app:layout_constraintTop_toBottomOf="@+id/tv_gender" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_gender">
 
-    <com.google.android.material.chip.Chip
-        android:id="@+id/chip_male"
-        style="@style/Widget.MaterialComponents.Chip.Choice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
-        android:layout_marginLeft="6dp"
-        android:layout_marginTop="16dp"
-        android:text="남성"
-        android:textSize="18sp"
-        app:layout_constraintStart_toEndOf="@+id/chip_fmale"
-        app:layout_constraintTop_toBottomOf="@+id/tv_gender" />
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_fmale"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="여성"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/tv_gender"
+            app:layout_constraintTop_toBottomOf="@+id/tv_gender" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_male"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginLeft="6dp"
+            android:layout_marginTop="16dp"
+            android:text="남성"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@+id/chip_fmale"
+            app:layout_constraintTop_toBottomOf="@+id/tv_gender" />
+
+    </com.google.android.material.chip.ChipGroup>
 
     <TextView
         android:id="@+id/tv_region"
@@ -49,21 +59,18 @@
         android:layout_marginTop="40dp"
         android:text="선호지역"
         android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="@+id/tv_gender"
-        app:layout_constraintTop_toBottomOf="@+id/chip_male" />
+        app:layout_constraintStart_toStartOf="@+id/cg_gender"
+        app:layout_constraintTop_toBottomOf="@+id/cg_gender" />
 
     <com.google.android.material.chip.Chip
         android:id="@+id/p_region"
-        style="@style/Widget.MaterialComponents.Chip.Choice"
+        style="@style/Widget.MaterialComponents.Chip.Filter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="40dp"
         android:text="선택하세요"
         android:textSize="18sp"
-        app:layout_constraintStart_toEndOf="@+id/tv_region"
-        app:layout_constraintTop_toBottomOf="@+id/chip_male" />
+        app:layout_constraintStart_toStartOf="@+id/tv_region"
+        app:layout_constraintTop_toBottomOf="@+id/tv_region" />
 
     <TextView
         android:id="@+id/tv_personality"
@@ -73,19 +80,19 @@
         android:text="성격"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="@+id/tv_region"
-        app:layout_constraintTop_toBottomOf="@+id/tv_region" />
+        app:layout_constraintTop_toBottomOf="@+id/p_region" />
 
     <com.google.android.material.chip.ChipGroup
-        android:id="@+id/chipgroup2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:id="@+id/cg_personality"
+        android:layout_width="361dp"
+        android:layout_height="71dp"
+        android:layout_marginTop="12dp"
         app:layout_constraintStart_toStartOf="@+id/tv_personality"
         app:layout_constraintTop_toBottomOf="@+id/tv_personality">
 
         <com.google.android.material.chip.Chip
             android:id="@+id/p_chip7"
-            style="@style/Widget.MaterialComponents.Chip.Choice"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -96,7 +103,7 @@
 
         <com.google.android.material.chip.Chip
             android:id="@+id/p_chip8"
-            style="@style/Widget.MaterialComponents.Chip.Choice"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -107,7 +114,7 @@
 
         <com.google.android.material.chip.Chip
             android:id="@+id/p_chip9"
-            style="@style/Widget.MaterialComponents.Chip.Choice"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -118,7 +125,7 @@
 
         <com.google.android.material.chip.Chip
             android:id="@+id/p_chip10"
-            style="@style/Widget.MaterialComponents.Chip.Choice"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -129,7 +136,7 @@
 
         <com.google.android.material.chip.Chip
             android:id="@+id/p_chip11"
-            style="@style/Widget.MaterialComponents.Chip.Choice"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -140,7 +147,7 @@
 
         <com.google.android.material.chip.Chip
             android:id="@+id/p_chip12"
-            style="@style/Widget.MaterialComponents.Chip.Choice"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -149,80 +156,75 @@
             app:layout_constraintStart_toStartOf="@+id/tv_gender"
             app:layout_constraintTop_toBottomOf="@+id/tv_gender" />
 
-        <com.google.android.material.chip.ChipGroup
-            android:id="@+id/chipgroup3"
+        <com.google.android.material.chip.Chip
+            android:id="@+id/p_chip1"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp">
+            android:layout_marginTop="16dp"
+            android:text="엉뚱"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/tv_gender"
+            app:layout_constraintTop_toBottomOf="@+id/tv_gender" />
 
-            <com.google.android.material.chip.Chip
-                android:id="@+id/p_chip1"
-                style="@style/Widget.MaterialComponents.Chip.Choice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="엉뚱"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="@+id/tv_gender"
-                app:layout_constraintTop_toBottomOf="@+id/tv_gender" />
+        <com.google.android.material.chip.Chip
+            android:id="@+id/p_chip2"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="도도"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/tv_gender"
+            app:layout_constraintTop_toBottomOf="@+id/tv_gender" />
 
-            <com.google.android.material.chip.Chip
-                android:id="@+id/p_chip2"
-                style="@style/Widget.MaterialComponents.Chip.Choice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="도도"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="@+id/tv_gender"
-                app:layout_constraintTop_toBottomOf="@+id/tv_gender" />
+        <com.google.android.material.chip.Chip
+            android:id="@+id/p_chip3"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="애교"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/tv_gender"
+            app:layout_constraintTop_toBottomOf="@+id/tv_gender" />
 
-            <com.google.android.material.chip.Chip
-                android:id="@+id/p_chip3"
-                style="@style/Widget.MaterialComponents.Chip.Choice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="애교"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="@+id/tv_gender"
-                app:layout_constraintTop_toBottomOf="@+id/tv_gender" />
+        <com.google.android.material.chip.Chip
+            android:id="@+id/p_chip4"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="성실"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/tv_gender"
+            app:layout_constraintTop_toBottomOf="@+id/tv_gender" />
 
-            <com.google.android.material.chip.Chip
-                android:id="@+id/p_chip4"
-                style="@style/Widget.MaterialComponents.Chip.Choice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="성실"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="@+id/tv_gender"
-                app:layout_constraintTop_toBottomOf="@+id/tv_gender" />
+        <com.google.android.material.chip.Chip
+            android:id="@+id/p_chip5"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="4차원"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/tv_gender"
+            app:layout_constraintTop_toBottomOf="@+id/tv_gender" />
 
-            <com.google.android.material.chip.Chip
-                android:id="@+id/p_chip5"
-                style="@style/Widget.MaterialComponents.Chip.Choice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="4차원"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="@+id/tv_gender"
-                app:layout_constraintTop_toBottomOf="@+id/tv_gender" />
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/p_chip6"
-                style="@style/Widget.MaterialComponents.Chip.Choice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="다정다감"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="@+id/tv_gender"
-                app:layout_constraintTop_toBottomOf="@+id/tv_gender" />
-        </com.google.android.material.chip.ChipGroup>
+        <com.google.android.material.chip.Chip
+            android:id="@+id/p_chip6"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="다정다감"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/tv_gender"
+            app:layout_constraintTop_toBottomOf="@+id/tv_gender" />
 
     </com.google.android.material.chip.ChipGroup>
+
+
 
     <TextView
         android:id="@+id/tv_sports"
@@ -232,19 +234,19 @@
         android:text="관심운동"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="@+id/tv_personality"
-        app:layout_constraintTop_toBottomOf="@+id/chipgroup2" />
+        app:layout_constraintTop_toBottomOf="@+id/cg_personality" />
 
     <com.google.android.material.chip.ChipGroup
-        android:id="@+id/chipgroup4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/cg_sports"
+        android:layout_width="349dp"
+        android:layout_height="70dp"
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="@+id/tv_sports"
         app:layout_constraintTop_toBottomOf="@+id/tv_sports">
 
         <com.google.android.material.chip.Chip
             android:id="@+id/s_chip1"
-            style="@style/Widget.MaterialComponents.Chip.Choice"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -255,7 +257,7 @@
 
         <com.google.android.material.chip.Chip
             android:id="@+id/s_chip2"
-            style="@style/Widget.MaterialComponents.Chip.Choice"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -266,7 +268,7 @@
 
         <com.google.android.material.chip.Chip
             android:id="@+id/s_chip3"
-            style="@style/Widget.MaterialComponents.Chip.Choice"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -277,7 +279,7 @@
 
         <com.google.android.material.chip.Chip
             android:id="@+id/s_chip4"
-            style="@style/Widget.MaterialComponents.Chip.Choice"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -288,7 +290,7 @@
 
         <com.google.android.material.chip.Chip
             android:id="@+id/s_chip5"
-            style="@style/Widget.MaterialComponents.Chip.Choice"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -297,70 +299,74 @@
             app:layout_constraintStart_toStartOf="@+id/tv_gender"
             app:layout_constraintTop_toBottomOf="@+id/tv_gender" />
 
-        <com.google.android.material.chip.ChipGroup
-            android:id="@+id/chipgroup5"
+        <com.google.android.material.chip.Chip
+            android:id="@+id/s_chip6"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            app:layout_constraintStart_toStartOf="@+id/chipgroup4"
-            app:layout_constraintTop_toBottomOf="@+id/chipgroup4">
+            android:text="배트민턴"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/tv_gender"
+            app:layout_constraintTop_toBottomOf="@+id/tv_gender" />
 
-            <com.google.android.material.chip.Chip
-                android:id="@+id/s_chip6"
-                style="@style/Widget.MaterialComponents.Chip.Choice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="배트민턴"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="@+id/tv_gender"
-                app:layout_constraintTop_toBottomOf="@+id/tv_gender" />
+        <com.google.android.material.chip.Chip
+            android:id="@+id/s_chip7"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="테니스"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/tv_gender"
+            app:layout_constraintTop_toBottomOf="@+id/tv_gender" />
 
-            <com.google.android.material.chip.Chip
-                android:id="@+id/s_chip7"
-                style="@style/Widget.MaterialComponents.Chip.Choice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="테니스"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="@+id/tv_gender"
-                app:layout_constraintTop_toBottomOf="@+id/tv_gender" />
+        <com.google.android.material.chip.Chip
+            android:id="@+id/s_chip8"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="농구"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/tv_gender"
+            app:layout_constraintTop_toBottomOf="@+id/tv_gender" />
 
-            <com.google.android.material.chip.Chip
-                android:id="@+id/s_chip8"
-                style="@style/Widget.MaterialComponents.Chip.Choice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="농구"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="@+id/tv_gender"
-                app:layout_constraintTop_toBottomOf="@+id/tv_gender" />
+        <com.google.android.material.chip.Chip
+            android:id="@+id/s_chip9"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="조깅"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/tv_gender"
+            app:layout_constraintTop_toBottomOf="@+id/tv_gender" />
 
-            <com.google.android.material.chip.Chip
-                android:id="@+id/s_chip9"
-                style="@style/Widget.MaterialComponents.Chip.Choice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="조깅"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="@+id/tv_gender"
-                app:layout_constraintTop_toBottomOf="@+id/tv_gender" />
+        <com.google.android.material.chip.Chip
+            android:id="@+id/s_chip10"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="골프"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/tv_gender"
+            app:layout_constraintTop_toBottomOf="@+id/tv_gender" />
 
-            <com.google.android.material.chip.Chip
-                android:id="@+id/s_chip10"
-                style="@style/Widget.MaterialComponents.Chip.Choice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="골프"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="@+id/tv_gender"
-                app:layout_constraintTop_toBottomOf="@+id/tv_gender" />
-        </com.google.android.material.chip.ChipGroup>
+
     </com.google.android.material.chip.ChipGroup>
+
+    <Button
+        android:id="@+id/btn_info"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="60dp"
+        android:text="회원가입 완료"
+        app:layout_constraintEnd_toEndOf="@+id/cg_sports"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/cg_sports"
+        app:layout_constraintTop_toBottomOf="@+id/cg_sports" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
