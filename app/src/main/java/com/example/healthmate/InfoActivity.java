@@ -32,7 +32,8 @@ public class InfoActivity extends AppCompatActivity {
         userID = getIntent().getStringExtra("userID");
         userPass = getIntent().getStringExtra("userPass");
         userName = getIntent().getStringExtra("userName");
-        userAge = Integer.parseInt(getIntent().getStringExtra("userAge"));
+        userAge = getIntent().getIntExtra("userAge", 0);
+//        userAge = Integer.parseInt(getIntent().getStringExtra("userAge"));
 
         btn_info = findViewById(R.id.btn_info);
 
