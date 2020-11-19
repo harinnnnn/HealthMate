@@ -42,7 +42,7 @@ public class InfoActivity extends AppCompatActivity {
 
     private Button btn_info;
 
-    String userID, userPass, userName, user_sex, user_personality1, user_personality2, user_personality3, user_sport1, user_sport2, user_sport3;
+    String userID, userPass, userName, user_sex, user_do, user_se, user_personality1, user_personality2, user_personality3, user_sport1, user_sport2, user_sport3;
     int userAge;
 
     FirebaseDatabase database;
@@ -221,6 +221,9 @@ public class InfoActivity extends AppCompatActivity {
                 user_sex = chip_gender.getText().toString(); // 이거 성별
 
                 //지역 받아오기
+                user_do = choice_do;
+                user_se = choice_se;
+//                Toast.makeText(InfoActivity.this, choice_do + "=" + choice_se, Toast.LENGTH_SHORT).show(); //잘 담기는지 test
 
 
                 // 성격 담아오기
@@ -292,7 +295,7 @@ public class InfoActivity extends AppCompatActivity {
                     }
                 };
 
-                InfoRequest infoRequest = new InfoRequest(userID, userPass, userName, userAge, user_sex, user_personality1, user_personality2, user_personality3, user_sport1, user_sport2, user_sport3, responseListener);
+                InfoRequest infoRequest = new InfoRequest(userID, userPass, userName, userAge, user_sex, user_do, user_se, user_personality1, user_personality2, user_personality3, user_sport1, user_sport2, user_sport3, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(InfoActivity.this);
                 queue.add(infoRequest);
 
