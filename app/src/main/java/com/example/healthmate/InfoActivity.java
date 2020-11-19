@@ -203,13 +203,7 @@ public class InfoActivity extends AppCompatActivity {
 
             }
         });
-//        btn_refresh.setOnClickListener(new View.OnClickListener() {
-//            //버튼 클릭시 이벤트입니다.
-//            @Override
-//            public void onClick(View view) {
-//                Toast.makeText(InfoActivity.this, choice_do + "=" + choice_se, Toast.LENGTH_SHORT).show();
-//            }
-//        });
+
 
         btn_info.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -219,18 +213,25 @@ public class InfoActivity extends AppCompatActivity {
                 ChipGroup cg_gender = findViewById(R.id.cg_gender);
                 Chip chip_gender = (Chip) cg_gender.getChildAt(0);
                 user_sex = chip_gender.getText().toString(); // 이거 성별
+                if(user_sex.equals("")) {
+                    Toast.makeText(getApplicationContext(), "성별을 선택해주세요", Toast.LENGTH_SHORT).show();
+                }
+
 
                 //지역 받아오기
                 user_do = choice_do;
                 user_se = choice_se;
-//                Toast.makeText(InfoActivity.this, choice_do + "=" + choice_se, Toast.LENGTH_SHORT).show(); //잘 담기는지 test
+                if(user_do == "") {
+                    Toast.makeText(InfoActivity.this,"선호 지역을 선택해주세요",Toast.LENGTH_SHORT).show();
+                }
+//                Toast.makeText(InfoActivity.this, user_do + "=" + user_se, Toast.LENGTH_SHORT).show(); //잘 담기는지 test
 
 
                 // 성격 담아오기
                 ChipGroup cg_personality = findViewById(R.id.cg_personality);
                 int chipsCount_p = cg_personality.getChildCount(); // 하위속성 몇갠지 체크
                 if(chipsCount_p == 0){
-                    Toast.makeText(getApplicationContext(), "성격을 1개 이상 골라주세요", Toast.LENGTH_LONG).show();
+                    Toast.makeText(InfoActivity.this, "성격을 1개 이상 골라주세요", Toast.LENGTH_LONG).show();
                 }
                 else {
                     int i = 0;
@@ -254,8 +255,7 @@ public class InfoActivity extends AppCompatActivity {
                 int chipsCount_s = cg_sports.getChildCount();
                 if(chipsCount_s == 0){
                     Toast.makeText(getApplicationContext(), "운동을 1개 이상 골라주세요", Toast.LENGTH_LONG).show();
-                }
-                else {
+                } else {
                     int i = 0;
                     while(i<chipsCount_s) {
                         Chip chip = (Chip) cg_personality.getChildAt(i);
