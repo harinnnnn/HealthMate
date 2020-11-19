@@ -87,11 +87,11 @@
 
     <Button
         android:id="@+id/btn_register"
-        android:layout_width="88dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="계속하기"
         android:background="#395efb"
+        android:text="계속하기"
         android:textColor="#ffffff"
         app:layout_constraintEnd_toEndOf="@+id/et_age"
         app:layout_constraintStart_toStartOf="@+id/et_age"

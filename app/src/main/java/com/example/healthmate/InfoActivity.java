@@ -3,6 +3,7 @@ package com.example.healthmate;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -10,19 +11,31 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Hashtable;
+
 public class InfoActivity extends AppCompatActivity {
 
+    private static final String TAG = "InfoActivity";
+    FirebaseAuth mAuth;
     ArrayAdapter<CharSequence> adspin1, adspin2;
     String choice_do="";
     String choice_se="";
@@ -32,10 +45,17 @@ public class InfoActivity extends AppCompatActivity {
     String userID, userPass, userName, user_sex, user_personality1, user_personality2, user_personality3, user_sport1, user_sport2, user_sport3;
     int userAge;
 
+    FirebaseDatabase database;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) { // OnCreate는 액티비티 처음 실행될 때 실행되는 애들
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info);
+
+        database = FirebaseDatabase.getInstance();
+
+        //Initialize firebase Auth
+        mAuth = FirebaseAuth.getInstance();
 
         userID = getIntent().getStringExtra("userID");
         userPass = getIntent().getStringExtra("userPass");
@@ -276,9 +296,49 @@ public class InfoActivity extends AppCompatActivity {
                 RequestQueue queue = Volley.newRequestQueue(InfoActivity.this);
                 queue.add(infoRequest);
 
+
+                mAuth.createUserWithEmailAndPassword(userID, userPass)
+                        .addOnCompleteListener(InfoActivity.this, new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if (task.isSuccessful()) {
+                                    // Sign in success, update UI with the signed-in user's information
+                                    Log.d(TAG, "createUserWithEmail:success");
+                                    FirebaseUser user = mAuth.getCurrentUser();
+//                                    updateUI(user);
+
+                                    DatabaseReference myRef = database.getReference("message").child(user.getUid());
+
+                                    Hashtable<String, String> numbers
+                                            = new Hashtable<String, String>();
+                                    numbers.put("email", user.getEmail());
+                                    Toast.makeText(InfoActivity.this, "Register Success", Toast.LENGTH_LONG).show();
+
+                                    myRef.setValue(numbers);
+
+
+                                } else {
+                                    // If sign in fails, display a message to the user.
+                                    Log.w(TAG, "createUserWithEmail:failure", task.getException());
+                                    Toast.makeText(InfoActivity.this, "Authentication failed.",
+                                            Toast.LENGTH_SHORT).show();
+//                                    updateUI(null);
+                                }
+
+                                // ...
+                            }
+                        });
             }
         });
 
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+//        FirebaseUser currentUser = mAuth.getCurrentUser();
+//        updateUI(currentUser);
     }
 
 }
