@@ -36,9 +36,15 @@ public class InfoActivity extends AppCompatActivity {
 
     private static final String TAG = "InfoActivity";
     FirebaseAuth mAuth;
+
+    Chip c_fmale;
+    Chip c_male;
+    String sex = "";
+
     ArrayAdapter<CharSequence> adspin1, adspin2;
     String choice_do="";
     String choice_se="";
+
 
     private Button btn_info;
 
@@ -65,9 +71,28 @@ public class InfoActivity extends AppCompatActivity {
 
         btn_info = findViewById(R.id.btn_info);
 
+        //성별
+        c_fmale = (Chip)findViewById(R.id.chip_fmale);
+        c_fmale.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sex = c_fmale.getText().toString();
+                Toast.makeText(InfoActivity.this, sex, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        c_male = (Chip)findViewById(R.id.chip_male);
+        c_male.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sex = c_male.getText().toString();
+                Toast.makeText(InfoActivity.this, sex, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        //지역
         final Spinner spin1 = (Spinner)findViewById(R.id.spinner);
         final Spinner spin2 = (Spinner)findViewById(R.id.spinner2);
-//        Button btn_refresh = (Button)findViewById(R.id.btn_refresh);
 
         adspin1 = ArrayAdapter.createFromResource(this, R.array.spinner_do, android.R.layout.simple_spinner_dropdown_item);
         adspin1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -210,12 +235,15 @@ public class InfoActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 // 성별 받아오기
-                ChipGroup cg_gender = findViewById(R.id.cg_gender);
-                Chip chip_gender = (Chip) cg_gender.getChildAt(0);
-                user_sex = chip_gender.getText().toString(); // 이거 성별
-                if(user_sex.equals("")) {
-                    Toast.makeText(getApplicationContext(), "성별을 선택해주세요", Toast.LENGTH_SHORT).show();
+                user_sex = sex;
+                if(user_sex == "") {
+                    Toast.makeText(InfoActivity.this, "성별을 선택해주세요", Toast.LENGTH_SHORT).show();
+                } else  {
+                    Toast.makeText(InfoActivity.this,user_sex,Toast.LENGTH_SHORT).show();
                 }
+//                ChipGroup cg_gender = findViewById(R.id.cg_gender);
+//                Chip chip_gender = (Chip) cg_gender.getChildAt(0);
+//                user_sex = chip_gender.getText().toString(); // 이거 성별
 
 
                 //지역 받아오기
