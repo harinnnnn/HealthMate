@@ -18,13 +18,13 @@
             android:layout_alignParentTop="true"
             android:layout_centerVertical="true"
             android:layout_marginTop="0dp"
-            android:background="#ffffff"
+            android:background="#E8E8E8"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:text="H-mate"
             android:fontFamily="@font/jalnan"
             android:textAlignment="center"
-            android:textColor="#000000"
+            android:textColor="#242424"
             android:textSize="30sp"
             android:gravity="center_horizontal" /> <!-- android:layout_above="@+id/titleLayout" -->
 
@@ -51,9 +51,9 @@
         android:id="@+id/nav_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#ffffff"
-        app:itemIconTint="#000000"
-        app:itemTextColor="#000000"
+        android:background="#E8E8E8"
+        app:itemIconTint="#242424"
+        app:itemTextColor="#242424"
         android:layout_alignParentBottom="true"
         app:menu="@menu/bottom_nav" />
 
