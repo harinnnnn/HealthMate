@@ -1,5 +1,6 @@
 package com.example.healthmate;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -45,7 +46,6 @@ public class InfoActivity extends AppCompatActivity {
     String choice_do="";
     String choice_se="";
 
-
     private Button btn_info;
 
     String userID, userPass, userName, user_sex, user_do, user_se, user_personality1, user_personality2, user_personality3, user_sport1, user_sport2, user_sport3;
@@ -69,7 +69,6 @@ public class InfoActivity extends AppCompatActivity {
         userAge = getIntent().getIntExtra("userAge", 0);
 //        userAge = Integer.parseInt(getIntent().getStringExtra("userAge"));
 
-        btn_info = findViewById(R.id.btn_info);
 
         //성별
         c_fmale = (Chip)findViewById(R.id.chip_fmale);
@@ -229,31 +228,14 @@ public class InfoActivity extends AppCompatActivity {
             }
         });
 
-
+        btn_info = findViewById(R.id.btn_info);
         btn_info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                // 성별 받아오기
                 user_sex = sex;
-                if(user_sex == "") {
-                    Toast.makeText(InfoActivity.this, "성별을 선택해주세요", Toast.LENGTH_SHORT).show();
-                } else  {
-                    Toast.makeText(InfoActivity.this,user_sex,Toast.LENGTH_SHORT).show();
-                }
-//                ChipGroup cg_gender = findViewById(R.id.cg_gender);
-//                Chip chip_gender = (Chip) cg_gender.getChildAt(0);
-//                user_sex = chip_gender.getText().toString(); // 이거 성별
-
-
-                //지역 받아오기
                 user_do = choice_do;
                 user_se = choice_se;
-                if(user_do == "") {
-                    Toast.makeText(InfoActivity.this,"선호 지역을 선택해주세요",Toast.LENGTH_SHORT).show();
-                }
-//                Toast.makeText(InfoActivity.this, user_do + "=" + user_se, Toast.LENGTH_SHORT).show(); //잘 담기는지 test
-
 
                 // 성격 담아오기
                 ChipGroup cg_personality = findViewById(R.id.cg_personality);
@@ -262,21 +244,21 @@ public class InfoActivity extends AppCompatActivity {
                     Toast.makeText(InfoActivity.this, "성격을 1개 이상 골라주세요", Toast.LENGTH_LONG).show();
                 }
                 else {
-                    int i = 0;
-                    while(i<chipsCount_p) { // 하위속성 개수만큼 while문 돌기
-                        Chip chip = (Chip) cg_personality.getChildAt(i);
-                        if(chip.isChecked()) {
-                            if(i==0) {
+                    int j = 0;
+                    while (j < chipsCount_p) { // 하위속성 개수만큼 while문 돌기
+                        Chip chip = (Chip) cg_personality.getChildAt(j);
+                        if (chip.isChecked()) {
+                            if (j == 0) {
                                 user_personality1 = chip.getText().toString();
-                            }
-                            else if(i==1) {
+                            } else if (j == 1) {
                                 user_personality2 = chip.getText().toString();
-                            }
-                            else user_personality3 = chip.getText().toString();
+                            } else user_personality3 = chip.getText().toString();
                         }
-                        i++;
+                        j++;
                     }
                 }
+
+                Toast.makeText(getApplicationContext(), user_personality1+user_personality2+user_personality3, Toast.LENGTH_SHORT).show();
 
                 // 운동 담아오기
                 ChipGroup cg_sports = findViewById(R.id.cg_sports);
@@ -285,19 +267,32 @@ public class InfoActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "운동을 1개 이상 골라주세요", Toast.LENGTH_LONG).show();
                 } else {
                     int i = 0;
-                    while(i<chipsCount_s) {
-                        Chip chip = (Chip) cg_personality.getChildAt(i);
-                        if(chip.isChecked()) {
-                            if(i==0) {
+                    while (i < chipsCount_s) { // 하위속성 개수만큼 while문 돌기
+                        Chip chip = (Chip) cg_sports.getChildAt(i);
+                        if (chip.isChecked()) {
+                            if (i == 0) {
                                 user_sport1 = chip.getText().toString();
-                            }
-                            else if(i==1) {
+                            } else if (i == 1) {
                                 user_sport2 = chip.getText().toString();
-                            }
-                            else user_sport3 = chip.getText().toString();
+                            } else user_sport3 = chip.getText().toString();
                         }
                         i++;
                     }
+                }
+                Toast.makeText(getApplicationContext(), user_sport1+user_sport2+user_sport3, Toast.LENGTH_SHORT).show();
+
+
+                if(user_sex == "") {
+                    Toast.makeText(InfoActivity.this, "성별을 선택해주세요", Toast.LENGTH_SHORT).show();
+                }
+                else if(user_do == "") {
+                    Toast.makeText(InfoActivity.this,"선호 지역을 선택해주세요",Toast.LENGTH_SHORT).show();
+                }
+                else if(user_personality1 == null) {
+                    Toast.makeText(InfoActivity.this, "성격을 1개 이상 선택해주세요", Toast.LENGTH_SHORT).show();
+                }
+                else if(user_sport1 == null) {
+                    Toast.makeText(InfoActivity.this, "운동을 1개 이상 선택해주세요", Toast.LENGTH_SHORT).show();
                 }
 
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
@@ -363,6 +358,7 @@ public class InfoActivity extends AppCompatActivity {
         });
 
     }
+
 
     @Override
     public void onStart() {
