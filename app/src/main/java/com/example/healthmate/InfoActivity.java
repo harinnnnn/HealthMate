@@ -258,7 +258,7 @@ public class InfoActivity extends AppCompatActivity {
                     }
                 }
 
-                Toast.makeText(getApplicationContext(), user_personality1+user_personality2+user_personality3, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(), user_personality1+user_personality2+user_personality3, Toast.LENGTH_SHORT).show();
 
                 // 운동 담아오기
                 ChipGroup cg_sports = findViewById(R.id.cg_sports);
@@ -279,8 +279,7 @@ public class InfoActivity extends AppCompatActivity {
                         i++;
                     }
                 }
-                Toast.makeText(getApplicationContext(), user_sport1+user_sport2+user_sport3, Toast.LENGTH_SHORT).show();
-
+//                Toast.makeText(getApplicationContext(), user_sport1+user_sport2+user_sport3, Toast.LENGTH_SHORT).show();
 
                 if(user_sex == "") {
                     Toast.makeText(InfoActivity.this, "성별을 선택해주세요", Toast.LENGTH_SHORT).show();
