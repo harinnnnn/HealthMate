@@ -67,6 +67,41 @@ public class LoginActivity extends AppCompatActivity {
 
                 progressBar.setVisibility(View.VISIBLE);
 
+                Log.d(TAG, "로그인 실패1");
+                Response.Listener<String> responseListener = new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+                            boolean success = jsonObject.getBoolean("success");
+                            Log.d(TAG, "로그인 실패2");
+                            if(success) {
+                                String userID = jsonObject.getString("userID");
+                                String userPass = jsonObject.getString("userPassword");
+                                Log.d(TAG, "로그인 실패3");
+                                Toast.makeText(getApplicationContext(), "로그인 성공", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                intent.putExtra("userID", userID);
+                                intent.putExtra("userPass", userPass);
+                                startActivity(intent);
+                            }
+                            else {
+                                Log.d(TAG, "로그인 실패");
+                                Toast.makeText(getApplicationContext(), "로그인 실패", Toast.LENGTH_SHORT).show();
+                                return;
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                };
+
+                LoginRequest loginRequest = new LoginRequest(userID, userPass, responseListener);
+                RequestQueue queue = Volley.newRequestQueue(LoginActivity.this);
+                queue.add(loginRequest);
+
+
                 mAuth.signInWithEmailAndPassword(userID, userPass)
                         .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
                             @Override
@@ -103,36 +138,6 @@ public class LoginActivity extends AppCompatActivity {
                                 // ...
                             }
                         });
-
-
-                Response.Listener<String> responseListener = new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        try {
-                            JSONObject jsonObject = new JSONObject(response);
-                            boolean success = jsonObject.getBoolean("success");
-                            if(success) {
-                                String userID = jsonObject.getString("userID");
-                                String userPass = jsonObject.getString("userPassword");
-                                Toast.makeText(getApplicationContext(), "로그인 성공", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                                intent.putExtra("userID", userID);
-                                intent.putExtra("userPass", userPass);
-                                startActivity(intent);
-                            }
-                            else {
-                                Toast.makeText(getApplicationContext(), "로그인 실패", Toast.LENGTH_SHORT).show();
-                                return;
-                            }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-
-                    }
-                };
-                LoginRequest loginRequest = new LoginRequest(userID, userPass, responseListener);
-                RequestQueue queue = Volley.newRequestQueue(LoginActivity.this);
-                queue.add(loginRequest);
 
 
             }

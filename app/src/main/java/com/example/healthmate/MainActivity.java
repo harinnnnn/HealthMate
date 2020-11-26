@@ -17,6 +17,8 @@ import android.widget.ListView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
     private BottomNavigationView mBottomNV;
     private ImageView chat;
