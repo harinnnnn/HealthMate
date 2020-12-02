@@ -135,19 +135,5 @@
         </LinearLayout>
 
     </RelativeLayout>
-    <FrameLayout
-        android:id="@+id/content_layout"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/nav_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#E8E8E8"
-        app:itemIconTint="#242424"
-        app:itemTextColor="#242424"
-        android:layout_alignParentBottom="true"
-        app:menu="@menu/bottom_nav" />
 </RelativeLayout>
