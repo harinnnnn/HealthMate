@@ -56,8 +56,9 @@ public class FragmentPage4 extends Fragment implements View.OnClickListener {
                                 Map<String, Object> shot = snap.getData();
                                 String documentId = String.valueOf(shot.get(FirebaseID.documentId));
                                 String title = String.valueOf(shot.get(FirebaseID.title));
+                                String email = String.valueOf(shot.get(FirebaseID.email));
                                 String contents = String.valueOf(shot.get(FirebaseID.contents));
-                                Post data = new Post(documentId, title, contents);
+                                Post data = new Post(email, documentId, title, contents);
                                 mDatas.add(data);
                             }
                             mAdapter = new PostAdapter(mDatas);

@@ -26,7 +26,6 @@ import java.util.Map;
 
 public class BoardActivity extends AppCompatActivity implements View.OnClickListener{
 
-    private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     private FirebaseFirestore mStore = FirebaseFirestore.getInstance();
     private RecyclerView mPostRecyclerView;
     private PostAdapter mAdapter;
@@ -47,16 +46,19 @@ public class BoardActivity extends AppCompatActivity implements View.OnClickList
         super.onStart();
         mDatas = new ArrayList<>();
         mStore.collection(FirebaseID.post)
+                .orderBy(FirebaseID.timestamp, Query.Direction.DESCENDING)
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override
                     public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException error) {
                         if (queryDocumentSnapshots != null) {
+                            mDatas.clear();
                             for (DocumentSnapshot snap : queryDocumentSnapshots.getDocuments()) {
                                 Map<String, Object> shot = snap.getData();
                                 String documentId = String.valueOf(shot.get(FirebaseID.documentId));
+                                String email = String.valueOf(shot.get(FirebaseID.email));
                                 String title = String.valueOf(shot.get(FirebaseID.title));
                                 String contents = String.valueOf(shot.get(FirebaseID.contents));
-                                Post data = new Post(documentId, title, contents);
+                                Post data = new Post(email, documentId, title, contents);
                                 mDatas.add(data);
                             }
                             mAdapter = new PostAdapter(mDatas);
