@@ -9,6 +9,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
@@ -30,8 +32,8 @@ import java.util.Hashtable;
 public class RegisterActivity extends AppCompatActivity {
 
     private static final String TAG = "RegisterActivity";
-    private EditText et_id, et_pass, et_name, et_age, et_sex;
-    private Button btn_register, btn_test;
+    private EditText et_id, et_pass, et_name, et_age;
+    private Button btn_register;
     private FirebaseAuth mAuth;
     FirebaseDatabase database;
 
@@ -49,7 +51,6 @@ public class RegisterActivity extends AppCompatActivity {
         et_name = findViewById(R.id.et_name);
         et_age = findViewById(R.id.et_age);
         btn_register = findViewById(R.id.btn_register);
-        btn_test = findViewById(R.id.btn_test);
 
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -31,7 +31,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private static final String TAG = "LoginActivity";
     private EditText et_id, et_pass;
-    private Button btn_login, btn_register;
+    private Button btn_person, btn_company, btn_login, btn_register;
     ProgressBar progressBar;
     private FirebaseAuth mAuth;
     FirebaseDatabase database;
@@ -140,5 +140,13 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        btn_company = findViewById(R.id.btn_company);
+        btn_company.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this, LoginCompany.class);
+                startActivity(intent);
+            }
+        });
     }
 }
