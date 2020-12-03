@@ -23,7 +23,7 @@ public class PostingActivity extends AppCompatActivity implements View.OnClickLi
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     private FirebaseFirestore mStore = FirebaseFirestore.getInstance();
     private EditText mTitle, mContents;
-    private String email;
+//    private String email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,18 +35,18 @@ public class PostingActivity extends AppCompatActivity implements View.OnClickLi
 
         findViewById(R.id.post_save_button).setOnClickListener(this);
 
-        if(mAuth.getCurrentUser() != null) {
-            mStore.collection(FirebaseID.user).document(mAuth.getCurrentUser().getUid())
-                    .get()
-                    .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                        @Override
-                        public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                            if (task.getResult() != null) {
-                                email = (String) task.getResult().getData().get(FirebaseID.email);
-                            }
-                        }
-                    });
-            }
+//        if(mAuth.getCurrentUser() != null) {
+//            mStore.collection(FirebaseID.user).document(mAuth.getCurrentUser().getUid())
+//                    .get()
+//                    .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+//                        @Override
+//                        public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+//                            if (task.getResult() != null) {
+//                                email = (String) task.getResult().getData().get(FirebaseID.email);
+//                            }
+//                        }
+//                    });
+//            }
         }
 
     @Override
@@ -55,7 +55,7 @@ public class PostingActivity extends AppCompatActivity implements View.OnClickLi
             String postId = mStore.collection(FirebaseID.post).document().getId();
             Map<String, Object> data = new HashMap<>();
             data.put(FirebaseID.documentId, mAuth.getCurrentUser().getUid());
-            data.put(FirebaseID.email, email);
+//            data.put(FirebaseID.email, email);
             data.put(FirebaseID.title, mTitle.getText().toString());
             data.put(FirebaseID.contents, mContents.getText().toString());
             data.put(FirebaseID.timestamp, FieldValue.serverTimestamp());

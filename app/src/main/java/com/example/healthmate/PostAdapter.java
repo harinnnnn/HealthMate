@@ -27,7 +27,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
     @Override
     public void onBindViewHolder(@NonNull PostViewHolder holder, int position) {
         Post data = datas.get(position);
-        holder.email.setText("작성자: " + data.getEmail());
+//        holder.email.setText("작성자: " + data.getEmail());
         holder.title.setText(data.getTitle());
         holder.contents.setText(data.getContents());
     }
@@ -46,7 +46,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
         public PostViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            email = itemView.findViewById(R.id.item_post_email);
+//            email = itemView.findViewById(R.id.item_post_email);
             title = itemView.findViewById(R.id.item_post_title);
             contents = itemView.findViewById(R.id.item_post_contents);
         }

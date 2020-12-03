@@ -55,10 +55,10 @@ public class BoardActivity extends AppCompatActivity implements View.OnClickList
                             for (DocumentSnapshot snap : queryDocumentSnapshots.getDocuments()) {
                                 Map<String, Object> shot = snap.getData();
                                 String documentId = String.valueOf(shot.get(FirebaseID.documentId));
-                                String email = String.valueOf(shot.get(FirebaseID.email));
+//                                String email = String.valueOf(shot.get(FirebaseID.email));
                                 String title = String.valueOf(shot.get(FirebaseID.title));
                                 String contents = String.valueOf(shot.get(FirebaseID.contents));
-                                Post data = new Post(email, documentId, title, contents);
+                                Post data = new Post(documentId, title, contents);
                                 mDatas.add(data);
                             }
                             mAdapter = new PostAdapter(mDatas);

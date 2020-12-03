@@ -17,6 +17,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
@@ -48,17 +49,19 @@ public class FragmentPage4 extends Fragment implements View.OnClickListener {
         super.onStart();
         mDatas = new ArrayList<>();
         mStore.collection(FirebaseID.post)
+                .orderBy(FirebaseID.timestamp, Query.Direction.DESCENDING)
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override
                     public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException error) {
                         if (queryDocumentSnapshots != null) {
+                            mDatas.clear();
                             for (DocumentSnapshot snap : queryDocumentSnapshots.getDocuments()) {
                                 Map<String, Object> shot = snap.getData();
                                 String documentId = String.valueOf(shot.get(FirebaseID.documentId));
                                 String title = String.valueOf(shot.get(FirebaseID.title));
                                 String email = String.valueOf(shot.get(FirebaseID.email));
                                 String contents = String.valueOf(shot.get(FirebaseID.contents));
-                                Post data = new Post(email, documentId, title, contents);
+                                Post data = new Post(documentId, title, contents);
                                 mDatas.add(data);
                             }
                             mAdapter = new PostAdapter(mDatas);

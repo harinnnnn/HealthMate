@@ -27,7 +27,8 @@
             android:id="@+id/post_save_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@android:color/holo_blue_light"
+            android:background="#525252"
+            android:textColor="#ffffff"
             android:text="save" />
 
     </LinearLayout>
@@ -38,7 +39,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="16sp"
-        android:textColor="@android:color/holo_blue_light"
+        android:textColor="#525252"
         android:hint="contents"
         android:background="@null" />
 

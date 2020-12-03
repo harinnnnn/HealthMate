@@ -6,27 +6,27 @@ import java.util.Date;
 
 public class Post {
 
-    private String email;
+//    private String email;
     private String documentId;
     private String title;
     private String contents;
     @ServerTimestamp
     private Date date;
 
-    public Post(String email, String documentId, String title, String contents) {
+    public Post(String documentId, String title, String contents) {
         this.documentId = documentId;
         this.title = title;
-        this.email = email;
+//        this.email = email;
         this.contents = contents;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
+//    public String getEmail() {
+//        return email;
+//    }
+//
+//    public void setEmail(String email) {
+//        this.email = email;
+//    }
 
     public String getDocumentId() {
         return documentId;
@@ -63,8 +63,7 @@ public class Post {
     @Override
     public String toString() {
         return "Post{" +
-                "email='" + email + '\'' +
-                ", documentId='" + documentId + '\'' +
+                "documentId='" + documentId + '\'' +
                 ", title='" + title + '\'' +
                 ", contents='" + contents + '\'' +
                 ", date=" + date +
