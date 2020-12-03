@@ -2,28 +2,29 @@ package com.example.healthmate;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class FragmentPage4 extends Fragment implements View.OnClickListener {
+public class BoardActivity extends AppCompatActivity implements View.OnClickListener{
 
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     private FirebaseFirestore mStore = FirebaseFirestore.getInstance();
@@ -31,20 +32,18 @@ public class FragmentPage4 extends Fragment implements View.OnClickListener {
     private PostAdapter mAdapter;
     private List<Post> mDatas;
 
-    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        setHasOptionsMenu(true);
-        View view =  inflater.inflate(R.layout.activity_board, container, false);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_board);
 
-        mPostRecyclerView = view.findViewById(R.id.main_recyclerview);
-        view.findViewById(R.id.main_post_edit).setOnClickListener(this);
+        mPostRecyclerView = findViewById(R.id.main_recyclerview);
 
-        return view;
+        findViewById(R.id.main_post_edit).setOnClickListener(this);
     }
 
     @Override
-    public void onStart() {
+    protected void onStart() {
         super.onStart();
         mDatas = new ArrayList<>();
         mStore.collection(FirebaseID.post)
@@ -68,14 +67,8 @@ public class FragmentPage4 extends Fragment implements View.OnClickListener {
                 });
     }
 
-
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-    }
-
     @Override
     public void onClick(View view) {
-        startActivity(new Intent(getActivity(), PostingActivity.class));
+        startActivity(new Intent(this, PostingActivity.class));
     }
 }

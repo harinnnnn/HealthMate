@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:id="@+id/main_layout">
 
 
     <RelativeLayout
@@ -18,7 +19,7 @@
             android:layout_alignParentTop="true"
             android:layout_centerVertical="true"
             android:layout_marginTop="0dp"
-            android:background="#E8E8E8"
+            android:background="#ffffff"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:text="H-mate"
@@ -28,14 +29,14 @@
             android:textSize="30sp"
             android:gravity="center_horizontal" /> <!-- android:layout_above="@+id/titleLayout" -->
 
-        <ImageView
-            android:id="@+id/chat"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginLeft="355dp"
-            android:layout_marginTop="8dp"
-            android:paddingTop="5dp"
-            android:src="@drawable/ic_baseline_textsms_24" />
+                <ImageView
+                    android:id="@+id/chat"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="355dp"
+                    android:layout_marginTop="8dp"
+                    android:paddingTop="5dp"
+                    android:src="@drawable/ic_baseline_textsms_24" />
 
     </RelativeLayout>
 
@@ -51,7 +52,7 @@
         android:id="@+id/nav_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#E8E8E8"
+        android:background="#ffffff"
         app:itemIconTint="#242424"
         app:itemTextColor="#242424"
         android:layout_alignParentBottom="true"

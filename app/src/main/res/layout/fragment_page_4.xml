@@ -7,12 +7,12 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <TextView
+    <Button
+        android:id="@+id/btn_board"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Page_4"
-        android:textSize="100dp"/>
-
-
+        android:text="게시판 이동"
+        android:textColor="@android:color/black"
+        android:background="#ffffff"/>
 
 </LinearLayout>

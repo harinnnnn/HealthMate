@@ -156,7 +156,7 @@ public class ChatActivity extends AppCompatActivity {
 
                 Hashtable<String, String> numbers
                         = new Hashtable<String, String>();
-                numbers.put("email", stEmail);
+                numbers.put("email", stEmail); // 에러
                 numbers.put("text", stText);
 
                 myRef.setValue(numbers);
