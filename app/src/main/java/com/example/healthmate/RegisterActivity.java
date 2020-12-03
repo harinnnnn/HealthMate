@@ -59,7 +59,7 @@ public class RegisterActivity extends AppCompatActivity {
                 String userName = et_name.getText().toString();
                 int userAge = Integer.parseInt(et_age.getText().toString());
 
-                Intent intent = new Intent(RegisterActivity.this, InfoActivity.class);
+                Intent intent = new Intent(RegisterActivity.this, Register2.class);
                 intent.putExtra("userID", userID);
                 intent.putExtra("userPass", userPass);
                 intent.putExtra("userName", userName);
