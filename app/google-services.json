@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "860396719248",
+    "firebase_url": "https://healthmate-ca774.firebaseio.com",
+    "project_id": "healthmate-ca774",
+    "storage_bucket": "healthmate-ca774.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:860396719248:android:acea09d07b021aaa629c15",
+        "android_client_info": {
+          "package_name": "com.example.healthmate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "860396719248-8sn87l7e33e5vntn2o54nlup8u6vtud3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAuPJeFxPiADqx5nENvUfhgH-JV526vl4c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "860396719248-8sn87l7e33e5vntn2o54nlup8u6vtud3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
